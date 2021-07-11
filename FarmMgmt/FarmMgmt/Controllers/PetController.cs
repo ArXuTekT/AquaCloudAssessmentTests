@@ -27,7 +27,7 @@ namespace FarmMgmt.Controllers
 	        return _petService.List();
         }
 
-        [HttpGet("Add")]
+        [HttpPost("Add")]
         public ActionResult Add(string petName)
         {
 	        var opResult = _petService.Add(petName);
@@ -39,7 +39,7 @@ namespace FarmMgmt.Controllers
 	        }
         }
 
-        [HttpGet("Remove")]
+        [HttpPost("Remove")]
         public ActionResult Remove(string petName){
 	        var opResult = _petService.Remove(petName);
 	        if (opResult)
