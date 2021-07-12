@@ -10,7 +10,7 @@ namespace FarmMgmt.Controllers
 	using FarmMgmt.Interfaces;
 
 	[ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PetController : ControllerBase
     {
 	    private readonly ILogger<PetController> _logger;
@@ -27,7 +27,7 @@ namespace FarmMgmt.Controllers
 	        return _petService.List();
         }
 
-        [HttpPost("Add")]
+        [HttpGet("Add")]
         public ActionResult Add(string petName)
         {
 	        var opResult = _petService.Add(petName);
@@ -39,7 +39,7 @@ namespace FarmMgmt.Controllers
 	        }
         }
 
-        [HttpPost("Remove")]
+        [HttpGet("Remove")]
         public ActionResult Remove(string petName){
 	        var opResult = _petService.Remove(petName);
 	        if (opResult)

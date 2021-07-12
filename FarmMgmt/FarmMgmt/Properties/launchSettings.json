@@ -15,8 +15,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "farm;GetAnimalList",
+      "launchUrl": "pet/list",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
