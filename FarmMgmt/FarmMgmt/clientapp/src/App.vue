@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header title="Farm Manager" subtitle="Pets currently on your farm:"/>
+    <Header title="Farm Manager" subtitle="Pets currently on farm:"/>
     <PetList></PetList>
   </div>
 </template>

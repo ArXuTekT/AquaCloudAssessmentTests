@@ -28,17 +28,21 @@
         methods: {
             spawnPet: function (event) {
                 event.preventDefault();
-                axios.get('api/pet/add', {
-                    petName: 'MYDAK'
-                });
+                axios
+                    .get('api/pet/add', {
+                        params: {
+                            petName: this.newPetName
+                        }
+                    })
+                    .then(response => ((alert(response.data)))
+                    );
             }
+        },
+        created() {
+            axios
+                .get('api/pet/list');
         }
-    }
-    //var petList = new Vue({
-    //    el: '#pet-list',
-    //    data: {
-    //        pets: []
-    //    }
-    //})
+    };
+
 </script>
 
