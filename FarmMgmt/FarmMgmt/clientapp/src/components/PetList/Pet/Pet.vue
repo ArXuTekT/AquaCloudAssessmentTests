@@ -1,18 +1,26 @@
 <template>
-        <div class="pet">
-           <h4>{{ name }}</h4> <button v-on:click="removePet">Cast out</button>
-        </div>
+    <div class="btn-group pet" role="group" aria-label="Pet">
+        <button type="button" class="btn btn-warning">{{ name }}</button>
+        <button type="button" class="btn btn-danger" v-on:click="removePet" aria-label="Slay">
+            <i class="bi bi-type-strikethrough" title="Slay"></i>
+        </button>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'Pet',
-  props: {
-      name: String
-    },
-  methods: {
-      removePet: function () {
-          alert('Removing ' + this.name);
+    name: 'Pet',
+    props: {
+        name: String
+        },
+        data() {
+            return {
+                buttonId: this.name.replace(/\s+/g, '') + "-btn"
+            }
+        },
+    methods: {
+        removePet() {
+            this.$emit("userRemovingPet", this.name);
       }
     }
 }
@@ -20,8 +28,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-li {
-  display: inline-block;
-  margin: 0 10px;
+.pet{
+    padding: 8px;
 }
 </style>

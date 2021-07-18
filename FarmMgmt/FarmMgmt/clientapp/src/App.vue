@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header title="Farm Manager" subtitle="Pets currently on farm:"/>
+    <Header title="Farm Manager" subtitle="Manage animals from home"/>
     <PetList></PetList>
   </div>
 </template>
@@ -25,6 +25,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 </style>

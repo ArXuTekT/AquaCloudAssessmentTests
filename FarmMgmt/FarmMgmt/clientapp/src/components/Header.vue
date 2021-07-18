@@ -23,12 +23,12 @@ export default {
 }
 h3 {
     font-family: Arial, Helvetica, sans-serif;
-  margin: 40px 0 0;
+    margin: 8px 2px 2px 8px;
 }
-    h1 {
-        margin-bottom: 10px;
-        color: #b96f30;
-    }
+h1 {
+    margin-bottom: 10px;
+    color: #b96f30;
+}
 ul {
   list-style-type: none;
   padding: 0;
