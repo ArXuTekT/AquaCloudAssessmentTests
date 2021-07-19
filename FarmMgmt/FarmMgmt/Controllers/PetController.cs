@@ -23,30 +23,43 @@ namespace FarmMgmt.Controllers
         }
 
         [HttpGet("List")]
-        public IEnumerable<Pet> List(){
-	        return _petService.List();
+        public IEnumerable<Pet> List()
+        {
+            return _petService.List();
         }
 
         [HttpGet("Add")]
         public ActionResult Add(string petName)
         {
+            _logger.LogInformation($"Receieved Add call with petName `{petName}`");
 	        var opResult = _petService.Add(petName);
-	        if (opResult)
-		        return Ok($"Pet {petName} successfully added!");
-	        else
-	        {
-		        return BadRequest($"Pet {petName} already exists! Cannot add duplicate one. Please check your glasses)");
-	        }
+            if (opResult)
+            {
+                _logger.LogInformation($"Pet `{petName}` added successfully");
+                return Ok($"Pet `{petName}` successfully added!");
+            }
+            else
+            {
+                _logger.LogWarning($"Pet {petName} already exists! Cannot add duplicate one.");
+                return BadRequest($"Pet {petName} already exists! Cannot add duplicate one. Please check your glasses)");
+            }
         }
 
         [HttpGet("Remove")]
-        public ActionResult Remove(string petName){
-	        var opResult = _petService.Remove(petName);
-	        if (opResult)
-		        return Ok($"Pet {petName} successfully removed!");
-	        else{
-		        return BadRequest($"Pet {petName} does not exists! Please check your glasses)");
-	        }
+        public ActionResult Remove(string petName)
+        {
+            _logger.LogInformation($"Receieved Remove call with petName `{petName}`");
+            var opResult = _petService.Remove(petName);
+            if (opResult)
+            {
+                _logger.LogInformation($"Pet {petName} successfully removed.");
+                return Ok($"Pet {petName} successfully removed!");
+            }
+            else
+            {
+                _logger.LogWarning($"Pet {petName} does not exists! Cannot remove pet `{petName}`");
+                return BadRequest($"Pet {petName} does not exists! Please check your glasses)");
+            }
         }
     }
 }
